@@ -117,6 +117,22 @@ console.table(people[0]);
 // Read the documentation of this dog API: https://dog.ceo/dog-api/documentation/
 // Fetch 4 dogs of the same breed or sub-breed and display them in the DOM
 //feel free to change the ID of the images and/or add css.
+
+fetch("https://dog.ceo/api/breed/hound/images/random/4")
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    const dogImages = data.message;
+    // console.log(data);
+
+    document.getElementById("dog1").src = dogImages[0];
+    document.getElementById("dog2").src = dogImages[1];
+    document.getElementById("dog3").src = dogImages[2];
+    document.getElementById("dog4").src = dogImages[3];
+  })
+  .catch((error) => console.log(error));
+
 //------------------------------------------------------------------------------------------------------------------------------------------------
 
 //BONUS!!
